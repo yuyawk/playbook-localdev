@@ -1,0 +1,14 @@
+---
+
+- name: pip install
+  pip:
+    name:
+      - ipython
+      - jupyter
+      - mypy
+      - black
+      - pipenv
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time_default }}"
+  become: no

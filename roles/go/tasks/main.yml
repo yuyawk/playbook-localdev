@@ -1,0 +1,19 @@
+---
+
+- name: unarchive tarball
+  unarchive:
+    src: "https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz"
+    dest: /usr/local
+    remote_src: yes
+  when: ansible_system == "Linux" and ansible_architecture == "x86_64"
+  become: yes
+
+- name: export PATH
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: |
+      export PATH=$PATH:/usr/local/go/bin
+    create: yes
+    state: present
+  become: no
+  notify: source profile

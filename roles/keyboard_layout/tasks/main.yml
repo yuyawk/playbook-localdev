@@ -1,0 +1,9 @@
+---
+
+- name: copy config
+  copy:
+    src: .Xmodmap
+    dest: "{{ ansible_env.HOME }}"
+    mode: u=rw,g=rw,o=r
+  become: no
+  notify: call xmodmap
