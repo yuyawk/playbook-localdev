@@ -30,7 +30,7 @@
   apt:
     name:
       - code
-    state: present
+    state: "{{ apt_pkg_state_default }}"
   become: yes
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 

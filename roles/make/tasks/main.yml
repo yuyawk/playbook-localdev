@@ -4,7 +4,7 @@
   apt:
     name:
       - make
-    state: present
+    state: "{{ apt_pkg_state_default }}"
     update_cache: yes
     cache_valid_time: "{{ apt_cache_valid_time_default }}"
   become: yes
