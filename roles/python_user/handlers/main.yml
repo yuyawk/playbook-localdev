@@ -1,0 +1,5 @@
+---
+
+- name: source profile
+  command: ". {{ ansible_env.HOME }}/.profile"
+  become: no

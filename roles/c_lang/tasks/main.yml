@@ -3,6 +3,7 @@
 - name: apt install
   apt:
     name:
+      - build-essential
       - gcc
     state: "{{ apt_pkg_state_default }}"
     update_cache: yes

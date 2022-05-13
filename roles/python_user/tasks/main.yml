@@ -12,3 +12,21 @@
     update_cache: yes
     cache_valid_time: "{{ apt_cache_valid_time_default }}"
   become: no
+
+- name: install pyenv (git clone)
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: "{{ ansible_env.HOME }}/.pyenv"
+  become: no
+
+- name: install pyenv (export environment variables)
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init -)"
+    create: yes
+    state: "{{ shell_profile_block_default }}"
+  become: no
+  notify: source profile
