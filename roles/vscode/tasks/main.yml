@@ -94,8 +94,11 @@
 
 - name: copy config
   copy:
-    src: settings.json
-    dest: "{{ ansible_env.HOME }}/.config/Code/User/"
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/Code/User"
     mode: u=rw,g=rw,o=r
   become: no
   when: ansible_system == "Linux"
+  loop:
+    - settings.json
+    - keybindings.json

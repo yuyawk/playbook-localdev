@@ -12,10 +12,13 @@
     - role: git
     - role: go
     - role: keyboard_layout
+    - role: ltrace
     - role: make
     - role: nasm
     - role: python_root
     - role: python_user
     - role: rust
     - role: shell_profile
+    - role: strace
+    - role: tree
     - role: vscode
