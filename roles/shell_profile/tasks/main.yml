@@ -1,0 +1,27 @@
+---
+
+- name: make cursor faster
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: |
+      #faster cursor 
+      if [ $DISPLAY ]; then
+        xset r rate 200 30
+      fi
+    create: yes
+    state: present
+  become: no
+  notify: source profile
+
+- name: show git branch
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: >
+      export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+      )\[\033[00m\] \n$ "
+    create: yes
+    state: present
+  become: no
+  notify: source profile
+

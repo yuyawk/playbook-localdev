@@ -16,7 +16,7 @@
   blockinfile:
     path: "{{ ansible_env.HOME }}/.profile"
     block: |
-      "export PATH=$PATH:{{ ansible_env.HOME }}/.cargo/bin"
+      export PATH=$PATH:{{ ansible_env.HOME }}/.cargo/bin
     create: yes
     state: present
   when: result_rustup is failed

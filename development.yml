@@ -9,6 +9,7 @@
     - role: cpp
     - role: curl
     - role: docker
+    - role: git
     - role: go
     - role: keyboard_layout
     - role: make
@@ -16,4 +17,5 @@
     - role: python_root
     - role: python_user
     - role: rust
+    - role: shell_profile
     - role: vscode
