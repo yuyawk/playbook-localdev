@@ -14,6 +14,6 @@
     block: |
       export PATH=$PATH:/usr/local/go/bin
     create: yes
-    state: present
+    state: "{{ shell_profile_block_default }}"
   become: no
   notify: source profile

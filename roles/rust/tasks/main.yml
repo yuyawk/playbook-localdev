@@ -18,7 +18,7 @@
     block: |
       export PATH=$PATH:{{ ansible_env.HOME }}/.cargo/bin
     create: yes
-    state: present
+    state: "{{ shell_profile_block_default }}"
   when: result_rustup is failed
   become: no
   notify: source profile

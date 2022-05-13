@@ -9,7 +9,7 @@
         xset r rate 200 30
       fi
     create: yes
-    state: present
+    state: "{{ shell_profile_block_default }}"
   become: no
   notify: source profile
 
@@ -21,7 +21,7 @@
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
       )\[\033[00m\] \n$ "
     create: yes
-    state: present
+    state: "{{ shell_profile_block_default }}"
   become: no
   notify: source profile
 
