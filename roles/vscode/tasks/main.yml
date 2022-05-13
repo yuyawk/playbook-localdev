@@ -41,7 +41,7 @@
   changed_when: no
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
-- name: set variable for arch
+- name: set variable for vscode extensions
   set_fact:
     vscode_list_ext: "{{ __vscode_list_ext.stdout if __vscode_list_ext is defined else '' }}"
   become: no
