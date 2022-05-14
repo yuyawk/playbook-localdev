@@ -1,5 +1,0 @@
----
-
-- name: call xmodmap
-  command: "xmodmap {{ ansible_env.HOME }}/.Xmodmap"
-  become: no

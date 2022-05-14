@@ -1,0 +1,5 @@
+---
+
+dir_remapper_bin: /usr/local/bin
+dir_remapper_conf: /etc
+filename_conf: xremap_config.yml
