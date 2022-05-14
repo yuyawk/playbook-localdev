@@ -4,12 +4,14 @@
   meta: end_play
   when: ansible_system != "Linux" or ansible_architecture != "x86_64"
 
+- name: get session id
+  command: "loginctl | grep {{ ansible_env.USER }} | head -n1 | awk '{print $1}'"
+  register: __session_id
+  become: no
+  changed_when: no
+
 - name: get session type
-  command: >
-    loginctl show-session 
-    $(loginctl | grep {{ ansible_env.USER }} | head -n1 | awk '{print $1}') 
-    -p Type 
-    | sed -e 's/Type=//'
+  command: "loginctl show-session {{ __session_id.stdout }} -p Type | sed -e 's/Type=//'"
   register: __session_type
   become: no
   changed_when: no
