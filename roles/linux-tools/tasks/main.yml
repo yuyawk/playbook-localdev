@@ -1,10 +1,21 @@
 ---
 
+- name: record "uname -r"
+  command: uname -r
+  register: __uname
+  become: no
+  changed_when: no
+
+- name: set variable
+  set_fact:
+    var_uname: "{{ __uname.stdout }}"
+  become: no
+  changed_when: no
+
 - name: apt install
   apt:
     name:
-      - g++
-      - libboost-all-dev
+      - "linux-tools-{{ var_uname }}"
     state: "{{ apt_pkg_state_default }}"
     update_cache: yes
     cache_valid_time: "{{ apt_cache_valid_time_default }}"

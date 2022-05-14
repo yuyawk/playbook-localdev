@@ -3,18 +3,9 @@
 - name: apt install
   apt:
     name:
-      - binutils
-      - gdb
-      - radare2
+      - sysstat
     state: "{{ apt_pkg_state_default }}"
     update_cache: yes
     cache_valid_time: "{{ apt_cache_valid_time_default }}"
   become: yes
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
-
-- name: copy config
-  copy:
-    src: .gdbinit
-    dest: "{{ ansible_env.HOME }}"
-    mode: u=rw,g=rw,o=r
-  become: no
