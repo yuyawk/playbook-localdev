@@ -65,7 +65,6 @@
     - jeff-hykin.better-cpp-syntax
     - justusadam.language-haskell
     - KevinRose.vsc-python-indent
-    - matklad.rust-analyzer
     - maziac.asm-code-lens
     - ms-azuretools.vscode-docker
     - MS-CEINTL.vscode-language-pack-ja
@@ -86,6 +85,7 @@
     - njpwerner.autodocstring
     - pradip.replace-selected
     - quantum.quantum-devkit-vscode
+    - rust-lang.rust-analyzer
     - sergey-kintsel.haskell-formatter-vscode-extension
     - tuttieee.emacs-mcx
     - wholroyd.jinja
