@@ -17,7 +17,7 @@
     path: "{{ ansible_env.HOME }}/.profile"
     block: |
       export PATH=$PATH:{{ ansible_env.HOME }}/.cargo/bin
-    create: yes
+    marker: "# {mark} ANSIBLE MANAGED BLOCK ; ROLE: {{ role_name }}"
     state: "{{ shell_profile_block_default }}"
   when: result_rustup is failed
   become: no
