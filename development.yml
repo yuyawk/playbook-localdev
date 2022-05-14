@@ -12,6 +12,7 @@
     - role: go
     - role: keyboard_layout
     - role: linux-tools
+    - role: locale
     - role: ltrace
     - role: nasm
     - role: neofetch
