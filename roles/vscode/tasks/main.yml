@@ -50,7 +50,7 @@
 - name: install vscode extensions
   command: "code --install-extension {{ item }}"
   become: no
-  when: "{{ item }} not in vscode_list_ext"
+  when: item not in vscode_list_ext
   loop:
     - austin.code-gnu-global
     - cschlosser.doxdocgen
