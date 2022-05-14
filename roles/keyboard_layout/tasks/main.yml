@@ -30,6 +30,7 @@
   vars:
     version_xremap: v0.4.2
   become: yes
+  notify: restart daemon
 
 - name: copy binary config
   copy:
@@ -37,6 +38,7 @@
     dest: "{{ dir_remapper_conf }}"
     mode: u=rw,g=rw,o=r
   become: yes
+  notify: restart daemon
 
 - name: copy systemd config
   template:
@@ -44,10 +46,4 @@
     dest: /etc/systemd/system/xremap.service
     mode: u=rw,g=rw,o=r
   become: yes
-
-- name: start daemon
-  systemd:
-    name: xremap
-    state: started
-    enabled: yes
-  become: yes
+  notify: restart daemon
