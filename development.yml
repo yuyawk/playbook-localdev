@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    # NOTE: Roles starting with "__deps_" are for satisfying the requirements of modules, so they should not be listed here.
+    - role: binary_analysis
+    - role: c_cpp
+    - role: chrome
+    - role: curl
+    - role: docker
+    - role: git
+    - role: go
+    - role: keyboard_layout
+    - role: linux-tools
+    - role: locale
+    - role: ltrace
+    - role: nasm
+    - role: neofetch
+    - role: netcat
+    - role: python_root
+    - role: python_user
+    - role: rust
+    - role: shell_profile
+    - role: socat
+    - role: strace
+    - role: sysstat
+    - role: telnet
+    - role: tree
+    - role: vscode

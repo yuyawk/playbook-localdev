@@ -1,0 +1,37 @@
+---
+
+# NOTE: The expression of |ansible_architecture| is inconsistent (e.g. "amd64" is expressed as "x86_64"), so I don't use it.
+- name: get architecture for apt
+  command: dpkg --print-architecture
+  register: __dpkg_print_arch
+  become: no
+  changed_when: no
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: set variable
+  set_fact:
+    var_arch_for_dpkg: "{{ __dpkg_print_arch.stdout if __dpkg_print_arch is defined else ansible_architecture }}"
+  become: no
+  changed_when: no
+
+- name: add apt key
+  apt_key:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+  become: yes
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: add apt repository
+  apt_repository:
+    repo: "deb [arch={{ var_arch_for_dpkg }}] http://dl.google.com/linux/chrome/deb/ stable main"
+  become: yes
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: apt install
+  apt:
+    name:
+      - google-chrome-stable
+    state: "{{ apt_pkg_state_default }}"
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time_default }}"
+  become: yes
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"

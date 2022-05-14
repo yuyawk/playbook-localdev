@@ -1,0 +1,20 @@
+# How to write: https://github.com/k0kubun/xremap#configuration
+# (cf: parse rules) https://github.com/k0kubun/xremap/blob/6547b4883d01c0c61897ecad7ed8cf6d73f05c0f/src/config/key.rs 
+modmap:
+  - name: turn useless into functional
+    remap:
+      KEY_CAPSLOCK: KEY_LEFTCTRL
+      KEY_MUHENKAN: KEY_LEFTALT
+      KEY_HENKAN: KEY_RIGHTALT
+      KEY_KATAKANAHIRAGANA: KEY_RIGHTALT
+
+keymap:
+  - name: add arrow keybinds
+    remap:
+      ALT_L-KEY_I: { with_mark: KEY_UP }
+      ALT_L-KEY_K: { with_mark: KEY_DOWN }
+      ALT_L-KEY_J: { with_mark: KEY_LEFT }
+      ALT_L-KEY_L: { with_mark: KEY_RIGHT }
+      ALT_L-KEY_O: { with_mark: KEY_BACKSPACE }
+      ALT_L-KEY_M: { with_mark: KEY_DELETE }
+

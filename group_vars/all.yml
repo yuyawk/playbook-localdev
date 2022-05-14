@@ -1,0 +1,6 @@
+---
+
+apt_cache_valid_time_default: 86400
+apt_pkg_state_default: latest
+pip_pkg_state_default: latest
+shell_profile_block_default: present

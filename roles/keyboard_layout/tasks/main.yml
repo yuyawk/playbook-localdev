@@ -1,0 +1,49 @@
+---
+
+- name: check OS
+  meta: end_play
+  when: ansible_system != "Linux" or ansible_architecture != "x86_64"
+
+- name: get session type
+  shell: >
+    loginctl show-session 
+    $(loginctl | grep {{ ansible_env.USER }} | head -n1 | awk '{print $1}') 
+    -p Type 
+    | sed -e 's/Type=//'
+  register: __session_type
+  become: no
+  changed_when: no
+  
+- name: set variable
+  set_fact:
+    var_session_type: "{{ 'gnome' if __session_type.stdout == 'wayland' 
+        else 'x11' if __session_type.stdout == 'x11' 
+        else 'others' }}"
+  become: no
+  changed_when: no
+
+- name: unarchive tarball
+  unarchive:
+    src: "https://github.com/k0kubun/xremap/releases/download/{{ version_xremap }}/xremap-linux-x86_64-{{ var_session_type }}.zip"
+    dest: "{{ dir_remapper_bin }}"
+    remote_src: yes
+  vars:
+    version_xremap: v0.4.2
+  become: yes
+  notify: restart daemon
+
+- name: copy binary config
+  copy:
+    src: "{{ filename_conf }}"
+    dest: "{{ dir_remapper_conf }}"
+    mode: u=rw,g=rw,o=r
+  become: yes
+  notify: restart daemon
+
+- name: copy systemd config
+  template:
+    src: xremap.service.j2
+    dest: /etc/systemd/system/xremap.service
+    mode: u=rw,g=rw,o=r
+  become: yes
+  notify: restart daemon
