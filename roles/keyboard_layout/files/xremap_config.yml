@@ -4,16 +4,17 @@ modmap:
   - name: turn useless into functional
     remap:
       KEY_CAPSLOCK: KEY_LEFTCTRL
-      KEY_MUHENKAN: KEY_LEFTMETA
-      KEY_HENKAN: KEY_RIGHTMETA
-      KEY_KATAKANAHIRAGANA: KEY_RIGHTMETA
+      KEY_MUHENKAN: KEY_LEFTALT
+      KEY_HENKAN: KEY_RIGHTALT
+      KEY_KATAKANAHIRAGANA: KEY_RIGHTALT
 
 keymap:
   - name: add arrow keybinds
     remap:
-      M_L-KEY_I: KEY_UP
-      M_L-KEY_K: KEY_DOWN
-      M_L-KEY_J: KEY_LEFT
-      M_L-KEY_L: KEY_RIGHT
-      M_L-KEY_O: KEY_BACKSPACE
-      M_L-KEY_M: KEY_DELETE
+      ALT_L-KEY_I: KEY_UP
+      ALT_L-KEY_K: KEY_DOWN
+      ALT_L-KEY_J: KEY_LEFT
+      ALT_L-KEY_L: KEY_RIGHT
+      ALT_L-KEY_O: KEY_BACKSPACE
+      ALT_L-KEY_M: KEY_DELETE
+    timeout_millis: 200
