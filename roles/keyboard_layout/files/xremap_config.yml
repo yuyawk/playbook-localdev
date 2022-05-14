@@ -11,10 +11,10 @@ modmap:
 keymap:
   - name: add arrow keybinds
     remap:
-      ALT_L-KEY_I: KEY_UP
-      ALT_L-KEY_K: KEY_DOWN
-      ALT_L-KEY_J: KEY_LEFT
-      ALT_L-KEY_L: KEY_RIGHT
-      ALT_L-KEY_O: KEY_BACKSPACE
-      ALT_L-KEY_M: KEY_DELETE
-    timeout_millis: 200
+      ALT_L-KEY_I: { with_mark: KEY_UP }
+      ALT_L-KEY_K: { with_mark: KEY_DOWN }
+      ALT_L-KEY_J: { with_mark: KEY_LEFT }
+      ALT_L-KEY_L: { with_mark: KEY_RIGHT }
+      ALT_L-KEY_O: { with_mark: KEY_BACKSPACE }
+      ALT_L-KEY_M: { with_mark: KEY_DELETE }
+
