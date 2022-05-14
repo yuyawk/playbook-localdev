@@ -15,10 +15,13 @@
     - role: ltrace
     - role: make
     - role: nasm
+    - role: netcat
     - role: python_root
     - role: python_user
     - role: rust
     - role: shell_profile
+    - role: socat
     - role: strace
+    - role: telnet
     - role: tree
     - role: vscode
