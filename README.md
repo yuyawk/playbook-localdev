@@ -2,10 +2,13 @@
 ansible playbook for local development environment (designed for personal use)
 
 
-## Prerequisite
+## Preparation
 
 ```sh
 # for Debian or Ubuntu
+LANG=C xdg-user-dirs-gtk-update
+sudo apt update
+sudo apt upgrade
 sudo apt install ansible git
 ```
 
