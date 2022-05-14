@@ -4,7 +4,6 @@ Description= Remap keyboard layout using xremap
 [Service]
 KillMode=process
 ExecStart={{ dir_remapper_bin }}/xremap {{ dir_remapper_conf }}/{{ filename_conf }}
-ExecStop=/usr/bin/killall xremap
 Restart=always
 Environment=DISPLAY=:0.0
 
