@@ -4,7 +4,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
     "files.insertFinalNewline": true,
     "notebook.cellToolbarLocation": {
         "default": "right",

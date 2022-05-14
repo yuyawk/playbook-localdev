@@ -103,3 +103,4 @@
   loop:
     - settings.json
     - keybindings.json
+    - locale.json
