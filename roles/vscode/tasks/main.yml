@@ -50,6 +50,7 @@
 - name: install vscode extensions
   command: "code --install-extension {{ item }}"
   become: no
+  ignore_errors: yes
   when: item not in vscode_list_ext
   loop:
     - austin.code-gnu-global
