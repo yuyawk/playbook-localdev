@@ -47,3 +47,10 @@
     mode: u=rw,g=rw,o=r
   become: yes
   notify: restart daemon
+
+- name: start daemon
+  systemd:
+    name: xremap
+    state: started
+    enabled: yes
+  become: yes
