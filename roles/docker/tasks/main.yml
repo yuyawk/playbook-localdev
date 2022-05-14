@@ -44,10 +44,4 @@
     groups: docker
     append: yes
   become: yes
-
-- name: ensure service is enabled
-  systemd:
-    name: docker
-    state: started
-    enabled: yes
-  become: yes
+  notify: restart daemon
