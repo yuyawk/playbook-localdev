@@ -1,0 +1,5 @@
+---
+
+- name: load config
+  shell: xrdb "{{ ansible_env.HOME }}/.Xresources"
+  become: no

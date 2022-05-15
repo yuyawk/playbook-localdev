@@ -17,3 +17,12 @@ sudo apt install ansible git
 ```sh
 ansible-playbook site.yml -Kvvv
 ```
+
+## TODOs after play
+
+**FIXME: Automate the procedures below**
+
+```sh
+# for Ubuntu, change default terminal
+sudo update-alternatives --config x-terminal-emulator
+```

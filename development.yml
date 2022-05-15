@@ -25,5 +25,6 @@
     - role: strace
     - role: sysstat
     - role: telnet
+    - role: terminal
     - role: tree
     - role: vscode
