@@ -1,11 +1,19 @@
 ---
 
+- name: check if inputrc exists
+  stat:
+    path: /etc/inputrc
+  register: st_inputrc
+  become: yes
+  changed_when: false
+
 - name: disable beep
   lineinfile:
     path: /etc/inputrc
     regexp: '^# set bell-style none'
     line: 'set bell-style none'
   become: yes
+  when: st_inputrc.stat.exists
 
 - name: apt install
   apt:
