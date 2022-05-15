@@ -3,10 +3,11 @@
 - name: get current config
   command: gsettings get org.gnome.mutter overlay-key
   register: gnome_overlay_key
+  ignore_errors: yes
   become: no
   changed_when: no
 
 - name: change config
   command: gsettings set org.gnome.mutter overlay-key 'Super_R'
   become: no
-  when: '"Super_L" in gnome_overlay_key.stdout'
+  when: gnome_overlay_key is succeeded and "Super_L" in gnome_overlay_key.stdout
