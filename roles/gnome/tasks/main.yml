@@ -7,13 +7,17 @@
   changed_when: no
 
 - name: check desktop environment
-  meta: end_play
-  when: '"GNOME" not in xdg_current_desktop.stdout'
+  set_fact: 
+    to_be_continued: '"GNOME" in xdg_current_desktop.stdout'
+  become: no
+  changed_when: no
 
 - name: import __deps_gnome_overlay_key
   import_role:
     name: __deps_gnome_overlay_key
+  when: to_be_continued
 
 - name: import __deps_gnome_tweaks
   import_role:
     name: __deps_gnome_tweaks
+  when: to_be_continued
