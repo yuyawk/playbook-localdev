@@ -25,4 +25,8 @@ ansible-playbook site.yml -Kvvv
 ```sh
 # for Ubuntu, change default terminal
 sudo update-alternatives --config x-terminal-emulator
+# for Ubuntu, change some key bindings provided by gnome, especially those containing "Super-L"
+# Since it stores the configuration inside the database (located at `~/.config/dconf/user`), it's hard to fix using ansible.
+sudo apt install gnome-tweaks
+gnome-tweaks
 ```
