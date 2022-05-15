@@ -1,6 +1,6 @@
 ---
 
-- name: make cursor faster
+- name: edit .profile
   blockinfile:
     path: "{{ ansible_env.HOME }}/.profile"
     block: |
@@ -8,21 +8,17 @@
       if [ $DISPLAY ]; then
         xset r rate 200 30
       fi
-    marker: "# {mark} ANSIBLE MANAGED BLOCK ; ROLE: {{ role_name }} 1"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK for .profile ; ROLE: {{ role_name }}"
     state: "{{ shell_profile_block_default }}"
   become: no
   notify: source profile
 
-- name: show git branch
+- name: edit .bashrc
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.profile"
-    block: |
-      parse_git_branch() {
-        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-      }
-      export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
-    marker: "# {mark} ANSIBLE MANAGED BLOCK ; ROLE: {{ role_name }} 2"
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    block: >
+      export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')\[\033[00m\] \n$ "
+    marker: "# {mark} ANSIBLE MANAGED BLOCK for .bashrc ; ROLE: {{ role_name }}"
     state: "{{ shell_profile_block_default }}"
   become: no
-  notify: source profile
-
+  notify: source bashrc

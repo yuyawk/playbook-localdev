@@ -3,3 +3,7 @@
 - name: source profile
   shell: ". {{ ansible_env.HOME }}/.profile"
   become: no
+
+- name: source bashrc
+  shell: ". {{ ansible_env.HOME }}/.bashrc"
+  become: no
