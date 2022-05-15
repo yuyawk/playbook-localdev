@@ -18,13 +18,4 @@ sudo apt install ansible git
 ansible-playbook site.yml -Kvvv
 ```
 
-## TODOs after play
-
-**FIXME: Automate the procedures below**
-
-```sh
-# for Ubuntu, change default terminal
-sudo update-alternatives --config x-terminal-emulator
-# Some apps may require reboot
-reboot
-```
+After the play, it may be better to reboot the system.

@@ -17,3 +17,11 @@
     mode: u=rw,g=rw,o=r
   become: no
   notify: load config
+
+# supposed to be equivalent to `sudo update-alternatives --config x-terminal-emulator`
+- name: change default
+  file: 
+    src: /usr/bin/xterm
+    dest: /etc/alternatives/x-terminal-emulator
+    state: link
+  become: yes
