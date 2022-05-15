@@ -9,6 +9,8 @@
     - role: curl
     - role: docker
     - role: git
+    - role: gnome_overlay_key
+    - role: gnome_tweaks
     - role: go
     - role: keyboard_layout
     - role: linux-tools
