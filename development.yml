@@ -14,6 +14,7 @@
     - role: linux-tools
     - role: locale
     - role: ltrace
+    - role: mozc
     - role: nasm
     - role: neofetch
     - role: netcat

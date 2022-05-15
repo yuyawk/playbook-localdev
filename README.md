@@ -29,4 +29,6 @@ sudo update-alternatives --config x-terminal-emulator
 # Since it stores the configuration inside the database (located at `~/.config/dconf/user`), it's hard to fix using ansible.
 sudo apt install gnome-tweaks
 gnome-tweaks
+# Some apps may require reboot
+reboot
 ```
