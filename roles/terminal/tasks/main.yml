@@ -1,5 +1,12 @@
 ---
 
+- name: disable beep
+  lineinfile:
+    path: /etc/inputrc
+    regexp: '^# set bell-style none'
+    line: 'set bell-style none'
+  become: yes
+
 - name: apt install
   apt:
     name:
