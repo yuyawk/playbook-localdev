@@ -1,4 +1,5 @@
 ---
+# see also `update_development_yaml.sh`
 - hosts: localhost
   connection: local
   roles:
@@ -9,8 +10,7 @@
     - role: curl
     - role: docker
     - role: git
-    - role: gnome_overlay_key
-    - role: gnome_tweaks
+    - role: gnome
     - role: go
     - role: keyboard_layout
     - role: linux-tools

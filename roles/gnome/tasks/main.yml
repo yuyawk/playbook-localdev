@@ -1,0 +1,19 @@
+---
+
+- name: get desktop environment
+  shell: echo "$XDG_CURRENT_DESKTOP"
+  register: xdg_current_desktop
+  become: no
+  changed_when: no
+
+- name: check desktop environment
+  meta: end_play
+  when: '"GNOME" not in xdg_current_desktop.stdout'
+
+- name: import __deps_gnome_overlay_key
+  import_role:
+    name: __deps_gnome_overlay_key
+
+- name: import __deps_gnome_tweaks
+  import_role:
+    name: __deps_gnome_tweaks

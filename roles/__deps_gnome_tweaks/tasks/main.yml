@@ -1,15 +1,5 @@
 ---
 
-- name: get desktop environment
-  shell: echo "$XDG_CURRENT_DESKTOP"
-  register: xdg_current_desktop
-  become: no
-  changed_when: no
-
-- name: check desktop environment
-  meta: end_play
-  when: "GNOME" not in xdg_current_desktop.stdout
-
 - name: apt install
   apt:
     name:
