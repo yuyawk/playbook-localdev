@@ -6,7 +6,7 @@ ansible playbook for local development environment (designed for personal use)
 
 ```sh
 # for Debian or Ubuntu
-LANG=C xdg-user-dirs-gtk-update
+LANG=C xdg-user-dirs-gtk-update --force
 sudo apt update
 sudo apt upgrade
 sudo apt install ansible git
