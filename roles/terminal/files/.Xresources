@@ -29,3 +29,7 @@ XTerm*color12: #69B8ED
 XTerm*color13: #ED69B8
 XTerm*color14: #69EDE1
 XTerm*color15: #DDDDDD
+
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
