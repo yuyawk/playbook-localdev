@@ -1,0 +1,11 @@
+---
+
+- name: apt install
+  apt:
+    name:
+      - shellcheck
+    state: "{{ apt_pkg_state_default }}"
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time_default }}"
+  become: yes
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"

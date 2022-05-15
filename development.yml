@@ -24,6 +24,7 @@
     - role: python_user
     - role: rust
     - role: shell_profile
+    - role: shellcheck
     - role: socat
     - role: strace
     - role: sysstat
