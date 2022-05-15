@@ -7,7 +7,7 @@
 - name: get session type
   shell: >
     loginctl show-session 
-    $(loginctl | grep {{ ansible_env.USER }} | head -n1 | awk '{print $1}') 
+    $(loginctl | grep "{{ ansible_env.USER }}" | head -n1 | awk '{print $1}') 
     -p Type 
     | sed -e 's/Type=//'
   register: __session_type
