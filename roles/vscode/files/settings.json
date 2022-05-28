@@ -17,4 +17,6 @@
     "hexeditor.showDecodedText": false,
     "hexeditor.defaultEndianness": "little",
     "hexeditor.inspectorType": "aside",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
 }

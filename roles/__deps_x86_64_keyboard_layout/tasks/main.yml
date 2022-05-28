@@ -2,18 +2,18 @@
 
 - name: get session type
   shell: >
-    loginctl show-session 
-    $(loginctl | grep "{{ ansible_env.USER }}" | head -n1 | awk '{print $1}') 
-    -p Type 
+    loginctl show-session
+    $(loginctl | grep "{{ ansible_env.USER }}" | head -n1 | awk '{print $1}')
+    -p Type
     | sed -e 's/Type=//'
   register: __session_type
   become: no
   changed_when: no
-  
+
 - name: set variable
   set_fact:
-    var_session_type: "{{ 'gnome' if __session_type.stdout == 'wayland' 
-        else 'x11' if __session_type.stdout == 'x11' 
+    var_session_type: "{{ 'gnome' if __session_type.stdout == 'wayland'
+        else 'x11' if __session_type.stdout == 'x11'
         else 'others' }}"
   become: no
   changed_when: no

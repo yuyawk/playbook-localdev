@@ -1,5 +1,5 @@
 # How to write: https://github.com/k0kubun/xremap#configuration
-# (cf: parse rules) https://github.com/k0kubun/xremap/blob/6547b4883d01c0c61897ecad7ed8cf6d73f05c0f/src/config/key.rs 
+# (cf: parse rules) https://github.com/k0kubun/xremap/blob/6547b4883d01c0c61897ecad7ed8cf6d73f05c0f/src/config/key.rs
 modmap:
   - name: turn useless into functional
     remap:

@@ -1,6 +1,6 @@
 ---
 
 - name: import role for linux x86_64
-  import_role: 
+  import_role:
     name: __deps_x86_64_keyboard_layout
   when: ansible_system == "Linux" and ansible_architecture == "x86_64"

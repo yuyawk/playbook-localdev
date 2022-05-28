@@ -35,7 +35,7 @@
 
 # supposed to be equivalent to `sudo update-alternatives --config x-terminal-emulator`
 - name: change default
-  file: 
+  file:
     src: /usr/bin/xterm
     dest: /etc/alternatives/x-terminal-emulator
     state: link

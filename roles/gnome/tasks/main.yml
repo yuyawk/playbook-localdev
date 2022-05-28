@@ -7,7 +7,7 @@
   changed_when: no
 
 - name: check desktop environment
-  set_fact: 
+  set_fact:
     to_be_continued: '"GNOME" in xdg_current_desktop.stdout'
   become: no
   changed_when: no
