@@ -9,3 +9,10 @@
     cache_valid_time: "{{ apt_cache_valid_time_default }}"
   become: yes
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: set keyboard layout type
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.config/mozc/ibus_config.textproto"
+    regexp: '^  layout :'
+    line: '  layout : "{{ keyboard_layout_type_default }}"'
+  become: no

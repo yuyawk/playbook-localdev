@@ -4,6 +4,7 @@
   connection: local
   roles:
     # NOTE: Roles starting with "__deps_" are for satisfying the requirements of modules, so they should not be listed here.
+    - role: autostart
     - role: bazelisk
     - role: binary_analysis
     - role: c_cpp

@@ -1,5 +1,5 @@
 ---
 
 - name: load config
-  shell: xrdb "{{ ansible_env.HOME }}/.Xresources"
+  shell: xrdb -merge "{{ ansible_env.HOME }}/.Xresources"
   become: no

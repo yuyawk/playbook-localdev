@@ -1,0 +1,17 @@
+---
+
+- name: create directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/autostart"
+    state: directory
+    mode: u=rxw,g=rxw,o=rx
+  become: no
+  when: ansible_system == "Linux"
+
+- name: copy config
+  template:
+    src: setxkbmap.desktop.j2
+    dest: "{{ ansible_env.HOME }}/.config/autostart/setxkbmap.desktop"
+    mode: u=rw,g=rw,o=r
+  become: no
+  when: ansible_system == "Linux"
