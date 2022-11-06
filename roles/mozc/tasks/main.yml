@@ -10,9 +10,17 @@
   become: yes
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
+- name: check if ibus_config.textproto exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.config/mozc/ibus_config.textproto"
+  register: st_ibus_config_textproto
+  become: no
+  changed_when: no
+
 - name: set keyboard layout type
   lineinfile:
     path: "{{ ansible_env.HOME }}/.config/mozc/ibus_config.textproto"
     regexp: '^  layout :'
     line: '  layout : "{{ keyboard_layout_type_default }}"'
   become: no
+  when: st_ibus_config_textproto.stat.exists
