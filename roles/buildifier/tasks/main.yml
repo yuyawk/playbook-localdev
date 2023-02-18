@@ -1,0 +1,10 @@
+---
+
+- name: install
+  get_url:
+    url: "https://github.com/bazelbuild/buildtools/releases/download/{{ version }}/buildifier-linux-amd64"
+    dest: "{{ binary_dir_path }}/buildifier"
+    mode: u=rx,g=rx,o=rx
+    force: yes
+  become: yes
+  when: ansible_system == "Linux" and ansible_architecture == "x86_64"
