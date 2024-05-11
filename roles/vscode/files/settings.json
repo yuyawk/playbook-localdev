@@ -1,22 +1,29 @@
 {
-    "keyboard.dispatch": "keyCode",
-    "editor.tabCompletion": "on",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "security.workspace.trust.enabled": false,
-    "files.insertFinalNewline": true,
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "go.toolsManagement.autoUpdate": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "hexeditor.columnWidth": 16,
-    "hexeditor.showDecodedText": false,
-    "hexeditor.defaultEndianness": "little",
-    "hexeditor.inspectorType": "aside",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
+  "keyboard.dispatch": "keyCode",
+  "editor.tabCompletion": "on",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "security.workspace.trust.enabled": false,
+  "files.insertFinalNewline": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "go.toolsManagement.autoUpdate": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": false,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
