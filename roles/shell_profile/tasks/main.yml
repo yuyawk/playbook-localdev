@@ -1,5 +1,4 @@
 ---
-
 - name: edit .profile
   blockinfile:
     path: "{{ ansible_env.HOME }}/.profile"
@@ -8,6 +7,11 @@
       if [ $DISPLAY ]; then
         xset r rate 200 30
       fi
+
+      # ugly workaround to fix keyboard layout type
+      # It seems a software overrides it, after login...
+      # TODO: eliminate its cause
+      watch -n 30 setxkbmap jp &
     marker: "# {mark} ANSIBLE MANAGED BLOCK for .profile ; ROLE: {{ role_name }}"
     state: "{{ shell_profile_block_default }}"
   become: no
