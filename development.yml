@@ -35,3 +35,4 @@
     - role: terminal
     - role: tree
     - role: vscode
+    - role: zig

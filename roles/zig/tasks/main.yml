@@ -1,0 +1,36 @@
+---
+- name: check if zig exists
+  command: which zig
+  register: result_zig
+  ignore_errors: yes
+  changed_when: no
+  become: no
+
+- name: create .zig directory
+  file:
+    path: "{{ ansible_env.HOME }}/.zig"
+    state: directory
+    mode: u=rxw,g=rxw,o=rx
+  become: no
+
+- name: install zig by unarchiving its tarball
+  unarchive:
+    src: https://ziglang.org/download/{{ version }}/zig-linux-x86_64-{{ version }}.tar.xz
+    dest: "{{ ansible_env.HOME }}/.zig"
+    remote_src: yes
+    extra_opts:
+      - --strip-components=1
+      - --show-stored-names
+  when: result_zig is failed and ansible_system == "Linux" and ansible_architecture == "x86_64"
+  become: no
+
+- name: export PATH
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: |
+      export PATH=$PATH:{{ ansible_env.HOME }}/.zig
+    marker: "# {mark} ANSIBLE MANAGED BLOCK for .profile ; ROLE: {{ role_name }}"
+    state: "{{ shell_profile_block_default }}"
+  when: result_zig is failed
+  become: no
+  notify: source profile
