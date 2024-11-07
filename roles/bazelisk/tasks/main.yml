@@ -1,8 +1,16 @@
 ---
+- name: get the latest version
+  shell: >-
+    wget -qO- https://api.github.com/repos/bazelbuild/bazelisk/releases/latest | grep -oP '(?<=^  "name": ")[^"]+'
+  args:
+    warn: no
+  register: __version
+  become: no
+  changed_when: no
 
 - name: install
   get_url:
-    url: "https://github.com/bazelbuild/bazelisk/releases/download/{{ version }}/bazelisk-linux-amd64"
+    url: "https://github.com/bazelbuild/bazelisk/releases/download/{{ __version.stdout }}/bazelisk-linux-amd64"
     dest: "{{ binary_dir_path }}/bazelisk"
     mode: u=rx,g=rx,o=rx
     force: yes
