@@ -2,8 +2,6 @@
 - name: get the latest version
   shell: >-
     wget -qO- https://api.github.com/repos/bazelbuild/bazelisk/releases/latest | grep -oP '(?<=^  "name": ")[^"]+'
-  args:
-    warn: no
   register: __version
   become: no
   changed_when: no
