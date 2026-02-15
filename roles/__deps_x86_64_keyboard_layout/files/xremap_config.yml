@@ -1,19 +1,18 @@
-# How to write: https://github.com/k0kubun/xremap#configuration
-# (cf: parse rules) https://github.com/k0kubun/xremap/blob/6547b4883d01c0c61897ecad7ed8cf6d73f05c0f/src/config/key.rs
+# How to write: https://github.com/xremap/xremap/blob/v0.14.14/README.md#Configuration
 modmap:
   - name: turn useless into functional
     remap:
       KEY_CAPSLOCK: KEY_LEFTCTRL
-      KEY_MUHENKAN: SUPER_L
+      KEY_MUHENKAN: [SUPER_L, SUPER_R]
       KEY_HENKAN: KEY_RIGHTALT
       KEY_KATAKANAHIRAGANA: KEY_RIGHTALT
 
 keymap:
   - name: add arrow keybinds
     remap:
-      SUPER_L-KEY_I: KEY_UP
-      SUPER_L-KEY_K: KEY_DOWN
-      SUPER_L-KEY_J: KEY_LEFT
-      SUPER_L-KEY_L: KEY_RIGHT
-      SUPER_L-KEY_O: KEY_BACKSPACE
-      SUPER_L-KEY_M: KEY_DELETE
+      SUPER_L-SUPER_R-KEY_I: KEY_UP
+      SUPER_L-SUPER_R-KEY_K: KEY_DOWN
+      SUPER_L-SUPER_R-KEY_J: KEY_LEFT
+      SUPER_L-SUPER_R-KEY_L: KEY_RIGHT
+      SUPER_L-SUPER_R-KEY_O: KEY_BACKSPACE
+      SUPER_L-SUPER_R-KEY_M: KEY_DELETE

@@ -19,11 +19,11 @@
 
 - name: unarchive tarball of xremap
   unarchive:
-    src: "https://github.com/k0kubun/xremap/releases/download/{{ version_xremap }}/xremap-linux-x86_64-{{ var_session_type }}.zip"
+    src: "https://github.com/xremap/xremap/releases/download/{{ version_xremap }}/xremap-linux-x86_64-{{ var_session_type }}.zip"
     dest: "{{ dir_remapper_bin }}"
     remote_src: yes
   vars:
-    version_xremap: v0.8.18
+    version_xremap: v0.14.14
   become: yes
   notify: restart daemon
 
